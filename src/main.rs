@@ -6,8 +6,7 @@ use std::process::Command;
 use std::time::Duration;
 use structopt::StructOpt;
 
-/// Cli is a command line interface for the `rswatch` crate.
-/// It is used to watch for changes in files and directories.
+/// rswatch is a file watcher that can be used to run arbitrary commands when a file changes.
 #[derive(StructOpt, Debug)]
 struct Cli {
     /// path is the path to the file or directory to watch.
