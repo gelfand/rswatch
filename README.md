@@ -1,5 +1,7 @@
 # rswatch
 
+[![wakatime](https://wakatime.com/badge/github/gelfand/rswatch.svg)](https://wakatime.com/badge/github/gelfand/rswatch)
+
 ## File watcher
 
 rswatch is a simple, reliable and efficient file watcher, it can watch a single file or a directory and run arbitrary commands when the file changes.
