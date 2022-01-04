@@ -1,0 +1,13 @@
+[package]
+name = "rswatch"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+structopt = "0.3.13"
+anyhow = "1.0.52"
+ctrlc = "3.2.1"
+crossbeam = "0.8.1"
+serde_json = "1.0"
