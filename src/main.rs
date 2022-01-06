@@ -19,13 +19,18 @@ struct Cli {
 fn read_metadata(path: &std::path::PathBuf) -> HashMap<std::path::PathBuf, std::fs::Metadata> {
     let mut entries: HashMap<std::path::PathBuf, std::fs::Metadata> = HashMap::new();
 
-    for entry in std::fs::read_dir(path).unwrap() {
-        let entry = entry.unwrap();
-        if entry.path().is_dir() {
-            entries.extend(read_metadata(&entry.path()));
-        } else {
-            entries.insert(entry.path(), std::fs::metadata(entry.path()).unwrap());
+    let mdata = std::fs::metadata(path).unwrap();
+    if mdata.is_dir() {
+        for entry in std::fs::read_dir(path).unwrap() {
+            let entry = entry.unwrap();
+            if entry.path().is_dir() {
+                entries.extend(read_metadata(&entry.path()));
+            } else {
+                entries.insert(entry.path(), std::fs::metadata(entry.path()).unwrap());
+            }
         }
+    } else {
+        entries.insert(path.to_path_buf(), mdata);
     }
     entries
 }
